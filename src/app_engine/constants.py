@@ -20,7 +20,7 @@ LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 
 # Turn/Stun server override. This allows AppRTC to connect to turn servers
 # directly rather than retrieving them from an ICE server provider.
-ICE_SERVER_OVERRIDE = NONE
+ICE_SERVER_OVERRIDE = None
 # Enable by uncomment below and comment out above, then specify turn and stun
 # ICE_SERVER_OVERRIDE  = [
 #   {
