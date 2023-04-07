@@ -91,22 +91,24 @@ function sendUrlRequest(method, url, async, body) {
 //   ]
 // }
 function requestIceServers(iceServerRequestUrl, iceTransports) {
+  var username = prompt("What is Turn Server Username?");
+  var credential = prompt("What is Turn Server Credential?");
   return new Promise(function(resolve, reject) {
-    sendAsyncUrlRequest('POST', iceServerRequestUrl).then(function(response) {
-      var iceServerRequestResponse = parseJSON(response);
-      if (!iceServerRequestResponse) {
-        reject(Error('Error parsing response JSON: ' + response));
-        return;
-      }
-      if (iceTransports !== '') {
-        filterIceServersUrls(iceServerRequestResponse, iceTransports);
-      }
-      trace('Retrieved ICE server information.');
-      resolve(iceServerRequestResponse.iceServers);
-    }).catch(function(error) {
-      reject(Error('ICE server request error: ' + error.message));
-      return;
-    });
+      resolve([
+        {
+          'urls': 'stun:stun.annamalai.er.in:5349'
+        },
+        {
+          'urls': 'turn:turn.annamalai.er.in:5349?transport=udp',
+          'credential': credential,
+          'username': username
+        },
+        {
+          'urls': 'turn:turn.annamalai.er.in:5349?transport=tcp',
+          'credential': credential,
+          'username': username
+        }
+      ]);
   });
 }
 
