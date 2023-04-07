@@ -20,21 +20,7 @@ LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 
 # Turn/Stun server override. This allows AppRTC to connect to turn servers
 # directly rather than retrieving them from an ICE server provider.
-ICE_SERVER_OVERRIDE = [
-        {
-          'urls': 'stun:stun.annamalai.er.in:5349'
-        },
-        {
-          'urls': 'turn:turn.annamalai.er.in:5349?transport=udp',
-          'credential': credential,
-          'username': username
-        },
-        {
-          'urls': 'turn:turn.annamalai.er.in:5349?transport=tcp',
-          'credential': credential,
-          'username': username
-        }
-      ]
+ICE_SERVER_OVERRIDE = NONE
 # Enable by uncomment below and comment out above, then specify turn and stun
 # ICE_SERVER_OVERRIDE  = [
 #   {
