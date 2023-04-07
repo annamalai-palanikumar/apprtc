@@ -35,7 +35,7 @@ SignalingChannel.prototype.open = function() {
 
   trace('Opening signaling channel.');
   return new Promise(function(resolve, reject) {
-    this.websocket_ = new WebSocket(this.wssUrl_);
+    this.websocket_ = new WebSocket('ws://localhost:8089/ws');
 
     this.websocket_.onopen = function() {
       trace('Signaling channel opened.');
